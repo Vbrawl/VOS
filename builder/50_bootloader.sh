@@ -28,7 +28,6 @@ LABEL INSTALLER
   MENU LABEL VOS [CLI Installer]
   LINUX /vmlinuz
   INITRD /initrd
-  APPEND init=/installer/install.sh
   TEXT HELP
     boot cli installer for VOS
   ENDTEXT

@@ -1,12 +1,16 @@
 #!/bin/bash
 
+set -e
+
 export ROOT=$(pwd)
 export BUILDER_SRC=$ROOT/builder
 export CACHE=$ROOT/cache
 export BUILD=$ROOT/build
 export DIST=$ROOT/dist
 
+export INITRAMFS=""
 export BOOTLOADER_BIN=""
+export BOOTLOADER_CAT=""
 
 # Ensure directories exist
 if [ ! -d $CACHE ]
@@ -48,7 +52,6 @@ fi
 
 # FAKE KERNEL
 cp /boot/vmlinuz-6.1.0-31-amd64 $BUILD/vmlinuz
-cp /boot/initrd.img-6.1.0-31-amd64 $BUILD/initrd
 
 genisoimage -rational-rock -volid "VOS Installation Media" -cache-inodes \
 -joliet -full-iso9660-filenames -input-charset UTF8 -b $BOOTLOADER_BIN \
