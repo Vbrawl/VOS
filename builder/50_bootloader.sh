@@ -10,10 +10,7 @@ then
   | tar -xzf - -C $CACHE
 fi
 
-if [ ! -d $BOOTLOADER_DEST ]
-then
-  mkdir -p $BOOTLOADER_DEST
-fi
+mkdir -p $BOOTLOADER_DEST
 
 cp $BOOTLOADER_SRC/bios/core/isolinux.bin $BOOTLOADER_DEST/isolinux.bin
 cp $BOOTLOADER_SRC/bios/com32/menu/menu.c32 $BOOTLOADER_DEST/menu.c32

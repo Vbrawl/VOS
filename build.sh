@@ -4,6 +4,7 @@ set -e
 
 export ROOT=$(pwd)
 export BUILDER_SRC=$ROOT/builder
+
 export CACHE=$ROOT/cache
 export BUILD=$ROOT/build
 export BUILD_USR=$BUILD/usr
@@ -14,31 +15,18 @@ export INITRAMFS=""
 export BOOTLOADER_BIN=""
 export BOOTLOADER_CAT=""
 
-# Ensure directories exist
-if [ ! -d $CACHE ]
+# Clean build directory
+if [ -d $BUILD ]
 then
-  mkdir -p $CACHE
+  rm -r $BUILD
 fi
 
-if [ ! -d $BUILD ]
-then
-  mkdir -p $BUILD
-fi
-
-if [ ! -d $BUILD_USR ]
-then
-  mkdir -p $BUILD_USR
-fi
-
-if [ ! -d $BUILD_BIN ]
-then
-  mkdir -p $BUILD_BIN
-fi
-
-if [ ! -d $DIST ]
-then
-  mkdir -p $DIST
-fi
+# Create all directories
+mkdir -p $CACHE
+mkdir -p $BUILD
+mkdir -p $BUILD_USR
+mkdir -p $BUILD_BIN
+mkdir -p $DIST
 
 # Copy fs
 cp -r fs/* $BUILD
