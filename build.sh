@@ -6,6 +6,8 @@ export ROOT=$(pwd)
 export BUILDER_SRC=$ROOT/builder
 export CACHE=$ROOT/cache
 export BUILD=$ROOT/build
+export BUILD_USR=$BUILD/usr
+export BUILD_BIN=$BUILD_USR/bin
 export DIST=$ROOT/dist
 
 export INITRAMFS=""
@@ -21,6 +23,16 @@ fi
 if [ ! -d $BUILD ]
 then
   mkdir -p $BUILD
+fi
+
+if [ ! -d $BUILD_USR ]
+then
+  mkdir -p $BUILD_USR
+fi
+
+if [ ! -d $BUILD_BIN ]
+then
+  mkdir -p $BUILD_BIN
 fi
 
 if [ ! -d $DIST ]

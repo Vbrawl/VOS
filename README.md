@@ -7,3 +7,10 @@ It aims to be a daily driver and to support gaming, programming and hacking.
 # Installer?
 
 Comming soon!
+
+# Requirements
+
+* meson
+* make
+* gcc
+* git
