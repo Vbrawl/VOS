@@ -9,8 +9,11 @@ fi
 
 cd $SHELL_SRC
 
-./configure --enable-static-link
-make
+if [ ! -f bash ]
+then
+  ./configure --enable-static-link
+  make
+fi
 
 cp bash $BUILD_BIN/bash
 cp bash $BUILD/init
