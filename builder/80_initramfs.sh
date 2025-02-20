@@ -2,6 +2,4 @@
 
 cd $BUILD
 
-cpio -o --format=newc > initrd << EOF
-init
-EOF
+{ echo init; find usr; } | cpio -o --format=newc > initrd
