@@ -50,9 +50,6 @@ then
   exit
 fi
 
-# FAKE KERNEL
-cp /boot/vmlinuz-6.1.0-31-amd64 $BUILD/vmlinuz
-
 genisoimage -rational-rock -volid "VOS Installation Media" -cache-inodes \
 -joliet -full-iso9660-filenames -input-charset UTF8 -b $BOOTLOADER_BIN \
 -c $BOOTLOADER_CAT -no-emul-boot -boot-load-size 4 -boot-info-table \
