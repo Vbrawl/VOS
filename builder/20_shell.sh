@@ -12,7 +12,7 @@ cd $SHELL_SRC
 if [ ! -f bash ]
 then
   ./configure --enable-static-link
-  make
+  make -j$(nproc)
 fi
 
 cp bash $BUILD_BIN/bash
