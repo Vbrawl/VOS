@@ -20,13 +20,14 @@ cp $BOOTLOADER_SRC/bios/com32/elflink/ldlinux/ldlinux.c32 $BOOTLOADER_DEST/ldlin
 cat > $BOOTLOADER_DEST/isolinux.cfg << EOF
 DEFAULT INSTALLER
 UI menu.c32
-MENU TITLE "VOS"
+MENU TITLE VOS
 LABEL INSTALLER
   MENU LABEL VOS [CLI Installer]
   LINUX /vmlinuz
   INITRD /initrd
+  APPEND quiet
   TEXT HELP
-    boot cli installer for VOS
+    Install VOS
   ENDTEXT
 EOF
 
