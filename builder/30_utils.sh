@@ -19,7 +19,7 @@ fi
 cp $BB_SRC/busybox $BUILD_BIN/busybox
 cd $BUILD
 
-for s in ls cat pwd mount umount mkdir touch rm
-do
-  ln -s /usr/bin/busybox usr/bin/$s
-done
+#for s in ls cat pwd mount umount mkdir touch rm
+#do
+#  ln -s /usr/bin/busybox usr/bin/$s
+#done

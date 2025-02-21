@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/usr/bin/busybox ash
 
 echo HI
+ash
