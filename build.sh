@@ -29,7 +29,10 @@ mkdir -p $BUILD_BIN
 mkdir -p $DIST
 
 # Copy fs
-cp -r fs/* $BUILD
+cp -r fs $BUILD
+
+# Copy installer
+cp -r installer $BUILD
 
 # Execute all scripts
 for s in $BUILDER_SRC/*.sh
