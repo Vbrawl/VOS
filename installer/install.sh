@@ -3,7 +3,7 @@
 read -p "Welcome to VOS, would you like to proceed with the installation? [y/N] " PROCEED
 PROCEED=$(echo "${PROCEED:0:1}" | tr '[:lower:]' '[:upper:]')
 
-if [ "${PROCEED:0:1}" != "Y" ]
+if [ "$PROCEED" != "Y" ]
 then
   for i in $(seq 3 -1 1)
   do
@@ -37,10 +37,11 @@ w
 q
 EOF
 
-/usr/bin/mke2fs -t ext4 "${DRIVE}1"
+mke2fs -t ext4 "${DRIVE}1"
 
 
 mkdir -p /mnt
 mount "${DRIVE}1" /mnt
 
 chvt 1
+

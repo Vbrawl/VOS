@@ -3,6 +3,7 @@
 set -e
 
 export ROOT=$(pwd)
+export CONFIGS=$ROOT/configs
 export BUILDER_SRC=$ROOT/builder
 
 export CACHE=$ROOT/cache

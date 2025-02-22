@@ -12,15 +12,12 @@ cd $BB_SRC
 
 if [ ! -f busybox ]
 then
-  make defconfig
-  echo CONFIG_STATIC=y >> $BB_SRC/.config
+  cp $CONFIGS/busybox.conf $BB_SRC/.config
   make -j$(nproc)
 fi
 
 cp $BB_SRC/busybox $BUILD_BIN/busybox
 cd $BUILD
-
-
 
 
 if [ ! -d $E2FSPROGS_SRC ]
