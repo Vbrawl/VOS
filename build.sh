@@ -12,7 +12,6 @@ export BUILD_INITRD=$BUILD/initrd_fs
 export BUILD_ISO=$BUILD/iso
 export DIST=$ROOT/dist
 
-export INITRAMFS=""
 export BOOTLOADER_BIN=""
 export BOOTLOADER_CAT=""
 
@@ -28,9 +27,6 @@ mkdir -p $BUILD
 mkdir -p $BUILD_INITRD
 mkdir -p $BUILD_ISO
 mkdir -p $DIST
-
-# Copy fs
-#cp -r fs $BUILD
 
 # Execute all scripts
 for s in $BUILDER_SRC/*.sh

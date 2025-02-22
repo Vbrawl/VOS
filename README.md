@@ -14,3 +14,4 @@ Comming soon!
 * make
 * gcc
 * git
+* more... (Contributions are welcome!)
