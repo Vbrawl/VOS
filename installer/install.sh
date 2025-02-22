@@ -1,4 +1,4 @@
-#!/usr/bin/busybox ash
+#!/bin/busybox ash
 
 read -p "Welcome to VOS, would you like to proceed with the installation? [y/N] " PROCEED
 PROCEED=$(echo "${PROCEED:0:1}" | tr '[:lower:]' '[:upper:]')

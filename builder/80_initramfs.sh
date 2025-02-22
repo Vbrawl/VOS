@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd $BUILD
+cd $BUILD_INITRD
 
-{ echo init; find usr; find installer; } | cpio -o --format=newc > initrd
+find * | cpio -o --format=newc > $BUILD_ISO/initrd

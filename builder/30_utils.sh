@@ -16,8 +16,10 @@ then
   make -j$(nproc)
 fi
 
-cp $BB_SRC/busybox $BUILD_BIN/busybox
-cd $BUILD
+mkdir -p $BUILD_INITRD/bin
+cp $BB_SRC/busybox $BUILD_INITRD/bin/busybox
+
+
 
 
 if [ ! -d $E2FSPROGS_SRC ]
@@ -33,4 +35,4 @@ then
   make -j$(nproc)
 fi
 
-cp $E2FSPROGS_SRC/misc/mke2fs $BUILD_BIN/mke2fs
+cp $E2FSPROGS_SRC/misc/mke2fs $BUILD_INITRD/bin/mke2fs

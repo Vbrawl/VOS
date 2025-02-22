@@ -16,4 +16,4 @@ then
   make -j$(nproc)
 fi
 
-cp $KERNEL_SRC/arch/x86_64/boot/bzImage $BUILD/vmlinuz
+cp $KERNEL_SRC/arch/x86_64/boot/bzImage $BUILD_ISO/vmlinuz
