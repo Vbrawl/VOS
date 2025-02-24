@@ -13,7 +13,7 @@ cd $KERNEL_SRC
 if [ ! -f $KERNEL_SRC/arch/x86_64/boot/bzImage ]
 then
   cp $CONFIGS/kernel.conf $KERNEL_SRC/.config
-  make -j$(nproc)
+  make -j$(nproc) ARCH=$ARCH CC=$CROSS_CC
 fi
 
 cp $KERNEL_SRC/arch/x86_64/boot/bzImage $BUILD_ISO/vmlinuz

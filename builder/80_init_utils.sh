@@ -13,7 +13,7 @@ cd $BB_SRC
 if [ ! -f busybox ]
 then
   cp $CONFIGS/busybox.conf $BB_SRC/.config
-  make -j$(nproc)
+  make -j$(nproc) CC=$CROSS_CC
 fi
 
 mkdir -p $BUILD_INITRD/bin
@@ -31,7 +31,7 @@ cd $E2FSPROGS_SRC
 
 if [ ! -f misc/mke2fs ]
 then
-  ./configure --disable-nls CFLAGS="--static" LDFLAGS="--static"
+  ./configure --disable-nls CFLAGS="--static" LDFLAGS="--static" CC=$CROSS_CC
   make -j$(nproc)
 fi
 
