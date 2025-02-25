@@ -2,6 +2,14 @@
 
 GLIBC_SRC=$CACHE/glibc
 
+if [ ! -d $GLIBC_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/glibc/glibc-2.41.tar.xz
+  tar -xf glibc-2.41.tar.xz
+  mv glibc-2.41 $GLIBC_SRC
+fi
+
 if [ ! -d $GLIBC_SRC/build ]
 then
   mkdir -p $GLIBC_SRC/build
@@ -17,4 +25,4 @@ then
   make -j$(nproc) || true
 fi
 cd $GLIBC_SRC/build
-#make -j$(nproc) DESTDIR=$BUILD_INITRD/fs install
+make -j$(nproc) DESTDIR=$SYSROOT install
