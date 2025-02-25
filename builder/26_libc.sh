@@ -26,3 +26,5 @@ then
 fi
 cd $GLIBC_SRC/build
 make -j$(nproc) DESTDIR=$SYSROOT install
+mkdir -p $SYSROOT/lib64
+ln -sf ../usr/lib/ld-linux-x86-64.so.2 $SYSROOT/lib64/ld-linux-x86-64.so.2

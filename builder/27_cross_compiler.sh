@@ -26,6 +26,4 @@ fi
 cd $COMPILER_SRC/build-full
 make -j$(nproc) install
 
-ln -sf ../usr/lib/ld-linux-x86-64.so.2 $SYSROOT/lib64/ld-linux-x86-64.so.2
-
 export CROSS_CC=$CROSS_COMPILER/bin/$TARGET-gcc
