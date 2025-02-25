@@ -32,7 +32,7 @@ cd $BASH_SRC
 
 if [ ! -f bash ]
 then
-  ./configure CC=$CROSS_CC
+  CC=$CROSS_CC CFLAGS="-Wno-implicit-function-declaration" ./configure CC=$CROSS_CC
   make -j$(nproc)
 fi
 
