@@ -20,3 +20,6 @@ export TARGET=$ARCH-vos-linux-gnu
 export CROSS_CC=""
 export BOOTLOADER_BIN=""
 export BOOTLOADER_CAT=""
+
+export MAGIC_FILE_NAME="MAGIC"
+export MAGIC_FILE_HASH=""
