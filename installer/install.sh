@@ -1,5 +1,7 @@
 #!/bin/busybox ash
 
+set -e
+
 read -p "Welcome to VOS, would you like to proceed with the installation? [y/N] " PROCEED
 PROCEED=$(echo "${PROCEED:0:1}" | tr '[:lower:]' '[:upper:]')
 
@@ -14,15 +16,8 @@ then
   exit
 fi
 
-fdisk -l | grep Disk
+fdisk -l | grep Disk || true
 read -p "Where should we install VOS? " DRIVE
-
-while ! fdisk -l $DRIVE 2>/dev/null
-do
-  echo "Invalid input!"
-  fdisk -l | grep Disk
-  read -p "Where should we install VOS? " DRIVE
-done
 
 fdisk $DRIVE << EOF
 o
@@ -43,5 +38,7 @@ mke2fs -t ext4 "${DRIVE}1"
 mkdir -p /mnt
 mount "${DRIVE}1" /mnt
 
+echo "Copying filesystem!"
+cp -r /install_media/fs/* /mnt
 chvt 1
 
