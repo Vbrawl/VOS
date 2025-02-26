@@ -18,3 +18,18 @@ fi
 
 mkdir -p $BUILD_INITRD/bin
 cp $BB_SRC/busybox $BUILD_INITRD/bin/busybox
+
+if [ ! -d $E2FSPROGS_SRC ]
+then
+  git clone git://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git $E2FSPROGS_SRC --depth 1
+fi
+
+cd $E2FSPROGS_SRC
+
+if [ ! -f misc/mke2fs ]
+then
+  CC=$CROSS_CC CFLAGS="--static" LDFLAGS="--static" ./configure
+  make -j$(nproc)
+fi
+
+cp $E2FSPROGS_SRC/misc/mke2fs $BUILD_INITRD/bin/mke2fs
