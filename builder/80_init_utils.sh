@@ -32,7 +32,7 @@ cd $BASH_SRC
 
 if [ ! -f bash ]
 then
-  CC=$CROSS_CC CFLAGS="-Wno-implicit-function-declaration" ./configure CC=$CROSS_CC
+  CC=$CROSS_CC CFLAGS="-Wno-implicit-function-declaration" ./configure
   make -j$(nproc)
 fi
 
@@ -47,7 +47,7 @@ cd $E2FSPROGS_SRC
 
 if [ ! -f misc/mke2fs ]
 then
-  ./configure --disable-nls CFLAGS="--static" LDFLAGS="--static" CC=$CROSS_CC
+  ./configure --disable-nls CC=$CROSS_CC
   make -j$(nproc)
 fi
 
