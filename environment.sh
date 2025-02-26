@@ -10,6 +10,7 @@ export BUILD_INITRD=$BUILD/initrd_fs
 export BUILD_ISO=$BUILD/iso
 export SYSROOT=$BUILD_INITRD
 export CACHE_SYSROOT=$CACHE/sysroot
+export ISO_SYSROOT=$BUILD_ISO/fs
 export CROSS_COMPILER=$CACHE/cross_cc
 export CROSS_COMPILER_FINISHED=$CROSS_COMPILER/complete.flag
 export DIST=$ROOT/dist
