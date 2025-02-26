@@ -2,6 +2,11 @@
 
 GLIBC_SRC=$CACHE/glibc
 
+if [ ! -f $CROSS_COMPILER_FINISHED ]
+then
+
+
+
 if [ ! -d $GLIBC_SRC ]
 then
   cd $CACHE
@@ -25,6 +30,9 @@ then
   make -j$(nproc) || true
 fi
 cd $GLIBC_SRC/build
-make -j$(nproc) DESTDIR=$SYSROOT install
-mkdir -p $SYSROOT/lib64
-ln -sf ../usr/lib/ld-linux-x86-64.so.2 $SYSROOT/lib64/ld-linux-x86-64.so.2
+make -j$(nproc) DESTDIR=$CACHE_SYSROOT install
+mkdir -p $CACHE_SYSROOT/lib64
+ln -sf ../usr/lib/ld-linux-x86-64.so.2 $CACHE_SYSROOT/lib64/ld-linux-x86-64.so.2
+
+
+fi

@@ -2,6 +2,11 @@
 
 COMPILER_SRC=$CACHE/gcc
 
+if [ ! -f $CROSS_COMPILER_FINISHED ]
+then
+
+
+
 if [ ! -d $COMPILER_SRC ]
 then
   cd $CACHE
@@ -17,7 +22,7 @@ then
   ../configure --target=$TARGET \
               --prefix=$CROSS_COMPILER \
               --with-glibc-version=2.41 \
-              --with-sysroot=$SYSROOT \
+              --with-sysroot=$CACHE_SYSROOT \
               --disable-multilib \
               --disable-nls \
               --enable-languages=c,c++
@@ -25,5 +30,9 @@ then
 fi
 cd $COMPILER_SRC/build-full
 make -j$(nproc) install
+
+touch $CROSS_COMPILER_FINISHED
+
+fi
 
 export CROSS_CC=$CROSS_COMPILER/bin/$TARGET-gcc

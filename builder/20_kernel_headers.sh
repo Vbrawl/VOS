@@ -2,6 +2,11 @@
 
 KERNEL_SRC=$CACHE/kernel
 
+if [ ! -f $CROSS_COMPILER_FINISHED ]
+then
+
+
+
 if [ ! -d $KERNEL_SRC ]
 then
 #  git clone https://github.com/torvalds/linux.git $KERNEL_SRC --depth 1
@@ -15,4 +20,8 @@ mkdir -p $CROSS_COMPILER/usr
 cd $KERNEL_SRC
 make -j$(nproc) mrproper
 make -j$(nproc) ARCH=$ARCH headers_install INSTALL_HDR_PATH=$CROSS_COMPILER/usr
-make -j$(nproc) ARCH=$ARCH headers_install INSTALL_HDR_PATH=$SYSROOT/usr
+make -j$(nproc) ARCH=$ARCH headers_install INSTALL_HDR_PATH=$CACHE_SYSROOT/usr
+
+
+
+fi

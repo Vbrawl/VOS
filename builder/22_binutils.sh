@@ -2,6 +2,11 @@
 
 BINUTILS_SRC=$CACHE/binutils
 
+if [ ! -f $CROSS_COMPILER_FINISHED ]
+then
+
+
+
 if [ ! -d $BINUTILS_SRC ]
 then
 #  git clone git://sourceware.org/git/binutils-gdb.git $BINUTILS_SRC --depth 1
@@ -16,7 +21,7 @@ then
   mkdir -p $BINUTILS_SRC/build
   cd $BINUTILS_SRC/build
   ../configure --target=$TARGET \
-              --with-sysroot=$SYSROOT \
+              --with-sysroot=$CACHE_SYSROOT \
               --prefix=$CROSS_COMPILER \
               --disable-nls \
               --disable-gprofng \
@@ -27,3 +32,6 @@ then
 fi
 cd $BINUTILS_SRC/build
 make -j$(nproc) install
+
+
+fi
