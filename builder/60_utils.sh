@@ -1,6 +1,31 @@
 #!/bin/bash
 
+CORE_SRC=$CACHE/coreutils
 BASH_SRC=$CACHE/bash
+
+if [ ! -d $CORE_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/coreutils/coreutils-9.6.tar.xz
+  tar -xf coreutils-9.6.tar.xz
+  mv coreutils-9.6 $CORE_SRC
+fi
+
+cd $CORE_SRC
+
+if [ ! -f $CORE_SRC/Makefile ]
+then
+  CC=$CROSS_CC ./configure
+  make -j$(nproc) || true
+fi
+
+cd $CORE_SRC/src
+mkdir -p $ISO_SYSROOT/bin
+for f in $(find * -type f -executable)
+do
+  cp $f $ISO_SYSROOT/bin/$f
+done
+
 
 if [ ! -d $BASH_SRC ]
 then
