@@ -9,6 +9,11 @@ FINDUTILS_SRC=$CACHE/findutils
 GAWK_SRC=$CACHE/gawk
 GREP_SRC=$CACHE/grep
 GZIP_SRC=$CACHE/gzip
+MAKE_SRC=$CACHE/make
+PATCH_SRC=$CACHE/patch
+SED_SRC=$CACHE/sed
+TAR_SRC=$CACHE/tar
+XZ_SRC=$CACHE/xz
 
 if [ ! -d $CORE_SRC ]
 then
@@ -22,8 +27,8 @@ cd $CORE_SRC
 
 if [ ! -f $CORE_SRC/Makefile ]
 then
-  CC=$CROSS_CC ./configure
-  make -j$(nproc) || true
+  CC=$CROSS_CC ./configure --host=$TARGET --build=$(./build-aux/config.guess)
+  make -j$(nproc)
 fi
 
 cd $CORE_SRC/src
@@ -221,4 +226,105 @@ then
   make -j$(nproc)
 fi
 cd $GZIP_SRC/build
+make DESTDIR=$ISO_SYSROOT install
+
+
+
+if [ ! -d $MAKE_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz
+  tar -xf make-4.4.1.tar.gz
+  mv make-4.4.1 $MAKE_SRC
+fi
+
+if [ ! -d $MAKE_SRC/build_dir ]
+then
+  mkdir -p $MAKE_SRC/build_dir
+  cd $MAKE_SRC/build_dir
+  CC=$CROSS_CC ../configure --prefix=/usr --without-guile
+  make -j$(nproc)
+fi
+cd $MAKE_SRC/build_dir
+make DESTDIR=$ISO_SYSROOT install
+
+
+
+if [ ! -d $PATCH_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/patch/patch-2.7.6.tar.xz
+  tar -xf patch-2.7.6.tar.xz
+  mv patch-2.7.6 $PATCH_SRC
+fi
+
+if [ ! -d $PATCH_SRC/build ]
+then
+  mkdir -p $PATCH_SRC/build
+  cd $PATCH_SRC/build
+  CC=$CROSS_CC ../configure --prefix=/usr
+  make -j$(nproc)
+fi
+cd $PATCH_SRC/build
+make DESTDIR=$ISO_SYSROOT install
+
+
+
+if [ ! -d $SED_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz
+  tar -xf sed-4.9.tar.xz
+  mv sed-4.9 $SED_SRC
+fi
+
+
+if [ ! -d $SED_SRC/build ]
+then
+  mkdir -p $SED_SRC/build
+  cd $SED_SRC/build
+  CC=$CROSS_CC ../configure --prefix=/usr --host=$TARGET --build=$(../build-aux/config.guess)
+  make -j$(nproc)
+fi
+cd $SED_SRC/build
+make DESTDIR=$ISO_SYSROOT install
+
+
+
+if [ ! -d $TAR_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/tar/tar-1.35.tar.xz
+  tar -xf tar-1.35.tar.xz
+  mv tar-1.35 $TAR_SRC
+fi
+
+if [ ! -d $TAR_SRC/build ]
+then
+  mkdir -p $TAR_SRC/build
+  cd $TAR_SRC/build
+  CC=$CROSS_CC ../configure --prefix=/usr
+  make -j$(nproc)
+fi
+cd $TAR_SRC/build
+make DESTDIR=$ISO_SYSROOT install
+
+
+
+if [ ! -d $XZ_SRC ]
+then
+  cd $CACHE
+  wget https://github.com/tukaani-project/xz/releases/download/v5.6.4/xz-5.6.4.tar.xz
+  tar -xf xz-5.6.4.tar.xz
+  mv xz-5.6.4 $XZ_SRC
+fi
+
+if [ ! -d $XZ_SRC/build ]
+then
+  mkdir -p $XZ_SRC/build
+  cd $XZ_SRC/build
+  CC=$CROSS_CC ../configure --prefix=/usr --disable-static
+  make -j$(nproc)
+fi
+cd $XZ_SRC/build
 make DESTDIR=$ISO_SYSROOT install
