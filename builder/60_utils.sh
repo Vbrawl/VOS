@@ -7,6 +7,8 @@ NCURSES_SRC=$CACHE/ncurses
 DIFFUTILS_SRC=$CACHE/diffutils
 FINDUTILS_SRC=$CACHE/findutils
 GAWK_SRC=$CACHE/gawk
+GREP_SRC=$CACHE/grep
+GZIP_SRC=$CACHE/gzip
 
 if [ ! -d $CORE_SRC ]
 then
@@ -181,4 +183,42 @@ then
   make -j$(nproc)
 fi
 cd $GAWK_SRC/build
+make DESTDIR=$ISO_SYSROOT install
+
+
+if [ ! -d $GREP_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz
+  tar -xf grep-3.11.tar.xz
+  mv grep-3.11 $GREP_SRC
+fi
+
+if [ ! -d $GREP_SRC/build ]
+then
+  mkdir -p $GREP_SRC/build
+  cd $GREP_SRC/build
+  CC=$CROSS_CC ../configure --prefix=/usr
+  make -j$(nproc)
+fi
+cd $GREP_SRC/build
+make DESTDIR=$ISO_SYSROOT install
+
+
+if [ ! -d $GZIP_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/gzip/gzip-1.13.tar.xz
+  tar -xf gzip-1.13.tar.xz
+  mv gzip-1.13 $GZIP_SRC
+fi
+
+if [ ! -d $GZIP_SRC/build ]
+then
+  mkdir -p $GZIP_SRC/build
+  cd $GZIP_SRC/build
+  CC=$CROSS_CC ../configure --prefix=/usr
+  make -j$(nproc)
+fi
+cd $GZIP_SRC/build
 make DESTDIR=$ISO_SYSROOT install
