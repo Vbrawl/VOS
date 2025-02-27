@@ -4,6 +4,9 @@ CORE_SRC=$CACHE/coreutils
 BASH_SRC=$CACHE/bash
 M4_SRC=$CACHE/m4
 NCURSES_SRC=$CACHE/ncurses
+DIFFUTILS_SRC=$CACHE/diffutils
+FINDUTILS_SRC=$CACHE/findutils
+GAWK_SRC=$CACHE/gawk
 
 if [ ! -d $CORE_SRC ]
 then
@@ -120,3 +123,62 @@ fi
 cd $NCURSES_SRC/build
 # Skip running TIC
 make DESTDIR=$ISO_SYSROOT TIC_PATH=$(which true) install
+
+
+
+if [ ! -d $DIFFUTILS_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/diffutils/diffutils-3.11.tar.xz
+  tar -xf diffutils-3.11.tar.xz
+  mv diffutils-3.11 $DIFFUTILS_SRC
+fi
+
+if [ ! -d $DIFFUTILS_SRC/build ]
+then
+  mkdir -p $DIFFUTILS_SRC/build
+  cd $DIFFUTILS_SRC/build
+  CC=$CROSS_CC ../configure --prefix=/usr
+  make -j$(nproc)
+fi
+
+cd $DIFFUTILS_SRC/build
+make DESTDIR=$ISO_SYSROOT install
+
+
+if [ ! -d $FINDUTILS_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/findutils/findutils-4.10.0.tar.xz
+  tar -xf findutils-4.10.0.tar.xz
+  mv findutils-4.10.0 $FINDUTILS_SRC
+fi
+
+if [ ! -d $FINDUTILS_SRC/build ]
+then
+  mkdir -p $FINDUTILS_SRC/build
+  cd $FINDUTILS_SRC/build
+  CC=$CROSS_CC ../configure --prefix=/usr
+  make -j$(nproc)
+fi
+cd $FINDUTILS_SRC/build
+make DESTDIR=$ISO_SYSROOT install
+
+
+if [ ! -d $GAWK_SRC ]
+then
+  cd $CACHE
+  wget https://ftp.gnu.org/gnu/gawk/gawk-5.3.1.tar.xz
+  tar -xf gawk-5.3.1.tar.xz
+  mv gawk-5.3.1 $GAWK_SRC
+fi
+
+if [ ! -d $GAWK_SRC/build ]
+then
+  mkdir -p $GAWK_SRC/build
+  cd $GAWK_SRC/build
+  CC=$CROSS_CC ../configure --prefix=/usr
+  make -j$(nproc)
+fi
+cd $GAWK_SRC/build
+make DESTDIR=$ISO_SYSROOT install
