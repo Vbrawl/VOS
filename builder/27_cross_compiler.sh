@@ -26,12 +26,13 @@ then
               --disable-multilib \
               --disable-nls \
               --enable-languages=c,c++
-  make
+  make -j$(nproc)
 fi
 cd $COMPILER_SRC/build-full
 make -j$(nproc) install
 
 touch $CROSS_COMPILER_FINISHED
+ln -s $TARGET-gcc $CROSS_COMPILER/$TARGET-cc
 
 fi
 
