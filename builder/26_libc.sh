@@ -32,7 +32,7 @@ fi
 cd $GLIBC_SRC/build
 make -j$(nproc) DESTDIR=$CACHE_SYSROOT install
 mkdir -p $CACHE_SYSROOT/lib64
-ln -sf ../usr/lib/ld-linux-x86-64.so.2 $CACHE_SYSROOT/lib64/ld-linux-x86-64.so.2
-
+ln -sf /usr/lib/ld-linux-x86-64.so.2 $CACHE_SYSROOT/lib64/ld-linux-x86-64.so.2
+ln -sf ld-linux-x86-64.so.2 $CACHE_SYSROOT/usr/lib/ld-linux.so.2
 
 fi
