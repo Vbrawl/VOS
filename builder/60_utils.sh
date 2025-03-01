@@ -353,7 +353,6 @@ then
   mkdir -p $BINUTILS_SRC/build_final
   cd $BINUTILS_SRC/build_final
   ../configure --prefix=/usr \
-                --exec-prefix=/usr \
                 --host=$TARGET \
                 --target=$TARGET \
                 --build=$(../config.guess) \
