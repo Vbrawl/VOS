@@ -66,6 +66,7 @@ fi
 
 mkdir -p $ISO_SYSROOT/bin
 cp $BASH_SRC/bash $ISO_SYSROOT/bin/bash
+ln -sf /bin/bash $ISO_SYSROOT/bin/sh
 
 if [ ! -d $M4_SRC ]
 then
