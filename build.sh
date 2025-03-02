@@ -7,7 +7,7 @@ source environment.sh
 # Clean build directory
 if [ -d $BUILD ]
 then
-  rm -r $BUILD
+  rm -rf $BUILD
 fi
 
 # Create all directories
