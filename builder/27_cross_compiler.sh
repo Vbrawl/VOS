@@ -32,7 +32,7 @@ cd $COMPILER_SRC/build-full
 make -j$(nproc) install
 
 touch $CROSS_COMPILER_FINISHED
-ln -s $TARGET-gcc $CROSS_COMPILER/$TARGET-cc
+ln -s $TARGET-gcc $CROSS_COMPILER/bin/$TARGET-cc
 
 fi
 
