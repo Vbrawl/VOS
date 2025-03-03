@@ -24,7 +24,7 @@ o
 n
 p
 1
-
+2048
 
 a
 1
@@ -40,5 +40,17 @@ mount "${DRIVE}1" /mnt
 
 echo "Copying filesystem!"
 cp -r /install_media/fs/* /mnt
+
+echo "Installing grub!"
+mkdir -p /mnt/dev
+mount --bind /dev /mnt/dev
+chroot /mnt /usr/sbin/grub-install $DRIVE
+
+for f in $(find /install_media/ | grep -E "initrd|vmlinuz")
+do
+  cp $f /mnt/boot/
+done
+
+chroot /mnt /usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg
 chvt 1
 
