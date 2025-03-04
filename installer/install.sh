@@ -46,7 +46,7 @@ mkdir -p /mnt/dev
 mount --bind /dev /mnt/dev
 chroot /mnt /usr/sbin/grub-install $DRIVE
 
-for f in $(find /install_media/ | grep -E "initrd|vmlinuz")
+for f in $(find /install_media/ | grep -E "initrd-|vmlinuz-")
 do
   cp $f /mnt/boot/
 done
