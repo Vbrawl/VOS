@@ -15,7 +15,7 @@ cd $DHCPCD_SRC
 
 if [ ! -f $DHCPCD_SRC/src/dhcpcd ]
 then
-  ./configure --prefix=/usr --target=$TARGET --host=$TARGET
+  ./configure --prefix=/usr --target=$TARGET --host=$TARGET --without-udev
   make -j$(nproc)
 fi
 
