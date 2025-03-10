@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir -p /var/db
+mkdir -p /var/run
+exec dhcpcd

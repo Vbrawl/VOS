@@ -20,9 +20,11 @@ export KERNEL_MAJOR_VERSION="6"
 export KERNEL_MINOR_VERSION="13"
 export KERNEL_PATCH_VERSION="4"
 
+export ENDIAN=little
 export ARCH=x86_64
 export TARGET=$ARCH-vos-linux-gnu
 export CROSS_CC=""
+export MESON_CROSS_FILE=""
 export BOOTLOADER_BIN=""
 export BOOTLOADER_CAT=""
 

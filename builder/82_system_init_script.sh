@@ -1,29 +1,19 @@
 #!/bin/bash
 
-cat > $BUILD_SYSTEM_INITRD/init << EOF
-#!/bin/busybox ash
+INITUP_SRC=$CACHE/initup
 
-busybox mkdir -p /dev
-busybox mount -t devtmpfs none /dev
+if [ ! -d $INITUP_SRC ]
+then
+  cd $CACHE
+  git clone https://github.com/Vbrawl/initup $INITUP_SRC --depth 1
+fi
 
-busybox mkdir -p /root
-busybox mount -t ext4 /dev/sda1 /root
+if [ ! -d $INITUP_SRC/build ]
+then
+  cd $INITUP_SRC
+  meson setup --cross-file $MESON_CROSS_FILE build
+  meson compile -C build
+fi
 
-busybox mkdir -p /root/dev
-busybox mkdir -p /root/proc
-busybox mkdir -p /root/sys
-busybox mkdir -p /root/var
-
-busybox mount -t devtmpfs none /root/dev
-busybox mount -t proc none /root/proc
-busybox mount -t sysfs none /root/sys
-busybox mount -t tmpfs none /root/var
-
-busybox mkdir -p /root/var/run
-
-busybox chroot /root /usr/sbin/dhcpcd
-
-exec busybox chroot /root /bin/bash
-EOF
-
-chmod +x $BUILD_SYSTEM_INITRD/init
+cd $INITUP_SRC/build
+DESTDIR=$ISO_SYSROOT/usr meson install

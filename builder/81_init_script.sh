@@ -38,6 +38,7 @@ openvt -c 6 -- getty -n -l /bin/ash 38400 tty6
 if [ \$install_media_found -eq 1 ]
 then
   openvt -c 7 -- /bin/ash /install_media/installer/install.sh
+  chvt 7
 fi
 
 getty -n -l /bin/ash 38400 tty1

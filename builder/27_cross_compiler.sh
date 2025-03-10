@@ -31,9 +31,32 @@ fi
 cd $COMPILER_SRC/build-full
 make -j$(nproc) install
 
+cat > $CROSS_COMPILER/cross_cc.meson << EOF
+[binaries]
+c = '${TARGET}-gcc'
+cpp = '${TARGET}-g++'
+ar = '${TARGET}-ar'
+windres = '${TARGET}-windres'
+strip = '${TARGET}-strip'
+pkgconfig = '$(which pkg-config)'
+
+[host_machine]
+system = 'linux'
+kernel = 'linux'
+cpu_family = '${ARCH}'
+cpu = '${ARCH}'
+endian = '${ENDIAN}'
+
+[properties]
+needs_exe_wrapper = true # Don't try to run resulting binaries on build machine
+pkg_config_libdir = '${ISO_SYSROOT}/usr/lib/pkgconfig'
+sys_root = '${ISO_SYSROOT}'
+EOF
+
 touch $CROSS_COMPILER_FINISHED
 ln -s $TARGET-gcc $CROSS_COMPILER/bin/$TARGET-cc
 
 fi
 
+export MESON_CROSS_FILE=$CROSS_COMPILER/cross_cc.meson
 export CROSS_CC=$CROSS_COMPILER/bin/$TARGET-gcc
