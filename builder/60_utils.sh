@@ -99,7 +99,7 @@ if [ ! -d $NCURSES_SRC/build-tic ]
 then
   mkdir -p $NCURSES_SRC/build-tic
   cd $NCURSES_SRC/build-tic
-  ../configure
+  ../configure --without-manpages --without-tests --without-debug
   make -j$(nproc) -C include
   make -j$(nproc) -C progs tic
 fi
@@ -116,7 +116,9 @@ then
                 --without-normal \
                 --with-cxx-shared \
                 --without-ada \
-                --disable-stripping
+                --disable-stripping \
+                --without-manpages \
+                --without-tests
   make -j$(nproc)
 fi
 
@@ -133,7 +135,9 @@ then
                 --without-normal \
                 --with-cxx-shared \
                 --without-ada \
-                --disable-stripping
+                --disable-stripping \
+                --without-manpages \
+                --without-tests
   make -j $(nproc)
 fi
 
