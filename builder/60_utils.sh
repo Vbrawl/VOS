@@ -2,8 +2,8 @@
 
 export PATH=$CROSS_COMPILER/bin:$PATH
 
-for f in $(ls $ROOT/builder/utils)
+for f in $ROOT/builder/utils/*.sh
 do
-  $LOGRUN $ROOT/builder/utils/$f &
+  $LOGRUN $f &
 done
 wait
