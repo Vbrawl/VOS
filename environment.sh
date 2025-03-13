@@ -16,6 +16,9 @@ export CROSS_COMPILER=$CACHE/cross_cc
 export CROSS_COMPILER_FINISHED=$CROSS_COMPILER/complete.flag
 export DIST=$ROOT/dist
 
+export LOGRUN=$ROOT/logrun.sh
+export LOGS=$ROOT/logs
+
 export KERNEL_MAJOR_VERSION="6"
 export KERNEL_MINOR_VERSION="13"
 export KERNEL_PATCH_VERSION="4"

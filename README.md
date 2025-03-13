@@ -15,8 +15,20 @@ Comming soon!
 
 # Requirements
 
+These packages below refer to Debian linux distributions, you may
+need to find equivalent for other linux distributions
+
 * meson
 * make
 * gcc
 * git
+* texinfo
+* libgmp-dev >= 4.2
+* libmpfr-dev >= 3.1.0
+* libmpc-dev >= 0.8.0
+* bison
+* libelf-dev
+* bc
+* libssl-dev
+* genisoimage
 * more... (Contributions are welcome!)

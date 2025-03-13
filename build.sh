@@ -10,6 +10,11 @@ then
   rm -rf $BUILD
 fi
 
+if [ -d $LOGS ]
+then
+  rm -rf $LOGS
+fi
+
 # Create all directories
 mkdir -p $CACHE
 mkdir -p $CROSS_COMPILER
@@ -20,6 +25,7 @@ mkdir -p $BUILD_ISO
 mkdir -p $CACHE_SYSROOT
 mkdir -p $ISO_SYSROOT
 mkdir -p $DIST
+mkdir -p $LOGS
 
 # Execute all scripts
 for s in $BUILDER_SRC/*.sh
