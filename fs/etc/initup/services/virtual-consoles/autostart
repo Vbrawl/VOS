@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 cd /
 
 while true
 do
-  /bin/bash
+  /bin/sh
 done

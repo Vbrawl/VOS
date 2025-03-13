@@ -22,4 +22,4 @@ cd $BASH_SRC/build
 make DESTDIR=$ISO_SYSROOT install
 
 mkdir -p $ISO_SYSROOT/bin
-ln -sf /bin/bash $ISO_SYSROOT/bin/sh
+ln -sf /usr/bin/bash $ISO_SYSROOT/bin/sh
