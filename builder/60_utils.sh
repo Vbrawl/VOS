@@ -2,7 +2,7 @@
 
 export PATH=$CROSS_COMPILER/bin:$PATH
 
-for phase in $ROOT/builder/utils
+for phase in $ROOT/builder/utils/*
 do
   for f in $phase/*.sh
   do
