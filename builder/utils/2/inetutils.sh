@@ -12,4 +12,8 @@ then
   make -j$(nproc)
 fi
 cd $INETUTILS_SRC/build
-make DESTDIR=$ISO_SYSROOT install
+
+# Tries to install executables as root.
+# We manually mark everything as 755 to avoid any problems.
+make DESTDIR=$ISO_SYSROOT install || true
+chmod 755 $ISO_SYSROOT/usr/bin/{ping,ping6,rcp,rlogin,rsh,traceroute}
