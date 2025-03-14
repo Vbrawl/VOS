@@ -5,16 +5,7 @@ KERNEL_SRC=$CACHE/kernel
 if [ ! -f $CROSS_COMPILER_FINISHED ]
 then
 
-
-
-if [ ! -d $KERNEL_SRC ]
-then
-#  git clone https://github.com/torvalds/linux.git $KERNEL_SRC --depth 1
-  cd $CACHE
-  wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.13.4.tar.xz
-  tar -xf linux-6.13.4.tar.xz
-  mv linux-6.13.4 $KERNEL_SRC
-fi
+download_and_untar "https://cdn.kernel.org/pub/linux/kernel/v${KERNEL_MAJOR_VERSION}.x/linux-${KERNEL_MAJOR_VERSION}.${KERNEL_MINOR_VERSION}.${KERNEL_PATCH_VERSION}.tar.xz" "$KERNEL_SRC"
 
 mkdir -p $CROSS_COMPILER/usr
 cd $KERNEL_SRC

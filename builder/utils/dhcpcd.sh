@@ -1,14 +1,7 @@
 #!/bin/bash
 
 DHCPCD_SRC=$CACHE/dhcpcd
-
-if [ ! -d $DHCPCD_SRC ]
-then
-  cd $CACHE
-  wget https://github.com/NetworkConfiguration/dhcpcd/archive/refs/tags/v10.2.2.tar.gz -O dhcpcd-10.2.2.tar.gz
-  tar -xf dhcpcd-10.2.2.tar.gz
-  mv dhcpcd-10.2.2 $DHCPCD_SRC
-fi
+download_and_untar "https://github.com/NetworkConfiguration/dhcpcd/archive/refs/tags/v10.2.2.tar.gz" "$DHCPCD_SRC"
 
 cd $DHCPCD_SRC
 

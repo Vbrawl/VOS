@@ -1,14 +1,7 @@
 #!/bin/bash
 
 CORE_SRC=$CACHE/coreutils
-
-if [ ! -d $CORE_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/coreutils/coreutils-9.6.tar.xz
-  tar -xf coreutils-9.6.tar.xz
-  mv coreutils-9.6 $CORE_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/coreutils/coreutils-9.6.tar.xz" "$CORE_SRC"
 
 if [ ! -d $CORE_SRC/build ]
 then

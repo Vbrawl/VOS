@@ -1,15 +1,7 @@
 #!/bin/bash
 
 SED_SRC=$CACHE/sed
-
-if [ ! -d $SED_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz
-  tar -xf sed-4.9.tar.xz
-  mv sed-4.9 $SED_SRC
-fi
-
+download_and_untar "https://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz" "$SED_SRC"
 
 if [ ! -d $SED_SRC/build ]
 then

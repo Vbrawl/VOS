@@ -5,15 +5,7 @@ GLIBC_SRC=$CACHE/glibc
 if [ ! -f $CROSS_COMPILER_FINISHED ]
 then
 
-
-
-if [ ! -d $GLIBC_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/glibc/glibc-2.41.tar.xz
-  tar -xf glibc-2.41.tar.xz
-  mv glibc-2.41 $GLIBC_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/glibc/glibc-2.41.tar.xz" "$GLIBC_SRC"
 
 if [ ! -d $GLIBC_SRC/build ]
 then

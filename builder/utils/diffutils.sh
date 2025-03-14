@@ -1,14 +1,7 @@
 #!/bin/bash
 
 DIFFUTILS_SRC=$CACHE/diffutils
-
-if [ ! -d $DIFFUTILS_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/diffutils/diffutils-3.11.tar.xz
-  tar -xf diffutils-3.11.tar.xz
-  mv diffutils-3.11 $DIFFUTILS_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/diffutils/diffutils-3.11.tar.xz" "$DIFFUTILS_SRC"
 
 if [ ! -d $DIFFUTILS_SRC/build ]
 then

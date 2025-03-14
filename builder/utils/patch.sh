@@ -1,14 +1,7 @@
 #!/bin/bash
 
 PATCH_SRC=$CACHE/patch
-
-if [ ! -d $PATCH_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/patch/patch-2.7.6.tar.xz
-  tar -xf patch-2.7.6.tar.xz
-  mv patch-2.7.6 $PATCH_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/patch/patch-2.7.6.tar.xz" "$PATCH_SRC"
 
 if [ ! -d $PATCH_SRC/build ]
 then

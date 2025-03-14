@@ -1,14 +1,7 @@
 #!/bin/bash
 
 GREP_SRC=$CACHE/grep
-
-if [ ! -d $GREP_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz
-  tar -xf grep-3.11.tar.xz
-  mv grep-3.11 $GREP_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz" "$GREP_SRC"
 
 if [ ! -d $GREP_SRC/build ]
 then

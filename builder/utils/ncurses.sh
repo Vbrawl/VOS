@@ -1,15 +1,7 @@
 #!/bin/bash
 
 NCURSES_SRC=$CACHE/ncurses
-
-
-if [ ! -d $NCURSES_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz
-  tar -xf ncurses-6.5.tar.gz
-  mv ncurses-6.5 $NCURSES_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz" "$NCURSES_SRC"
 
 if [ ! -d $NCURSES_SRC/build-tic ]
 then

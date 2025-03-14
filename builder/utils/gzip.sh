@@ -1,14 +1,7 @@
 #!/bin/bash
 
 GZIP_SRC=$CACHE/gzip
-
-if [ ! -d $GZIP_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/gzip/gzip-1.13.tar.xz
-  tar -xf gzip-1.13.tar.xz
-  mv gzip-1.13 $GZIP_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/gzip/gzip-1.13.tar.xz" $GZIP_SRC
 
 if [ ! -d $GZIP_SRC/build ]
 then

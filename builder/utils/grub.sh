@@ -1,14 +1,7 @@
 #!/bin/bash
 
 GRUB_SRC=$CACHE/grub
-
-if [ ! -d $GRUB_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz
-  tar -xf grub-2.12.tar.xz
-  mv grub-2.12 $GRUB_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz" "$GRUB_SRC"
 
 if [ ! -d $GRUB_SRC/build ]
 then

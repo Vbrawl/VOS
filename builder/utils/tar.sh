@@ -1,14 +1,7 @@
 #!/bin/bash
 
 TAR_SRC=$CACHE/tar
-
-if [ ! -d $TAR_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/tar/tar-1.35.tar.xz
-  tar -xf tar-1.35.tar.xz
-  mv tar-1.35 $TAR_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/tar/tar-1.35.tar.xz" "$TAR_SRC"
 
 if [ ! -d $TAR_SRC/build ]
 then

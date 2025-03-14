@@ -5,14 +5,7 @@ COMPILER_SRC=$CACHE/gcc
 if [ ! -f $CROSS_COMPILER_FINISHED ]
 then
 
-
-if [ ! -d $COMPILER_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.mpi-inf.mpg.de/mirrors/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-14.2.0/gcc-14.2.0.tar.xz
-  tar -xf gcc-14.2.0.tar.xz
-  mv gcc-14.2.0 $COMPILER_SRC
-fi
+download_and_untar "https://ftp.mpi-inf.mpg.de/mirrors/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-14.2.0/gcc-14.2.0.tar.xz" "$COMPILER_SRC"
 
 if [ ! -d $COMPILER_SRC/build ]
 then

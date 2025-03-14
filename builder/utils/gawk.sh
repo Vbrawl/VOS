@@ -1,14 +1,7 @@
 #!/bin/bash
 
 GAWK_SRC=$CACHE/gawk
-
-if [ ! -d $GAWK_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/gawk/gawk-5.3.1.tar.xz
-  tar -xf gawk-5.3.1.tar.xz
-  mv gawk-5.3.1 $GAWK_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/gawk/gawk-5.3.1.tar.xz" "$GAWK_SRC"
 
 if [ ! -d $GAWK_SRC/build ]
 then

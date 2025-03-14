@@ -1,14 +1,7 @@
 #!/bin/bash
 
 MAKE_SRC=$CACHE/make
-
-if [ ! -d $MAKE_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz
-  tar -xf make-4.4.1.tar.gz
-  mv make-4.4.1 $MAKE_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz" "$MAKE_SRC"
 
 if [ ! -d $MAKE_SRC/build_dir ]
 then

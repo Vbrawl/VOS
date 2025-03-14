@@ -1,14 +1,7 @@
 #!/bin/bash
 
 FINDUTILS_SRC=$CACHE/findutils
-
-if [ ! -d $FINDUTILS_SRC ]
-then
-  cd $CACHE
-  wget https://ftp.gnu.org/gnu/findutils/findutils-4.10.0.tar.xz
-  tar -xf findutils-4.10.0.tar.xz
-  mv findutils-4.10.0 $FINDUTILS_SRC
-fi
+download_and_untar "https://ftp.gnu.org/gnu/findutils/findutils-4.10.0.tar.xz" "$FINDUTILS_SRC"
 
 if [ ! -d $FINDUTILS_SRC/build ]
 then
