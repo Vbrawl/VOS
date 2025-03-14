@@ -31,20 +31,17 @@ function download_and_untar {
   local URL=$1
   local SRC=$2
   local extension=$(echo $URL | rev | cut -d '.' -f 1 | rev)
-  local decom_flag=""
-  if [ "$extension" == "gz" ]
+  if [ -n "$extension" ]
   then
-    decom_flag="-z"
-  elif [ "$extension" == "xz" ]
-  then
-    decom_flag="-J"
+    extension=".$extension"
   fi
 
   if [ ! -d $SRC ]
   then
     cd $CACHE
-    mkdir $SRC
-    curl $URL | tar -xzf - $decom_flag -C $SRC --strip-components=1
+    wget -c $URL -O $SRC.tar$extension
+    mkdir -p $SRC
+    tar -xf $SRC.tar$extension $decom_flag -C $SRC --strip-components=1
   fi
 }
 export -f download_and_untar
