@@ -9,7 +9,7 @@ then
   mkdir -p $INETUTILS_SRC/build
   cd $INETUTILS_SRC/build
   ../configure --prefix=/usr --host=$TARGET --build=$(../build-aux/config.guess) --enable-year2038
-  cat >> $INETUTILS_SRC/build/config.h < EOF
+  cat >> $INETUTILS_SRC/build/config.h << EOF
 #ifndef PATH_PROCNET_DEV
 #define PATH_PROCNET_DEV "/proc/net/dev"
 #endif PATH_PROCNET_DEV
