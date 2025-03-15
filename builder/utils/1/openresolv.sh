@@ -6,7 +6,7 @@ cd $OPENRESOLV_SRC
 
 if [ ! -f $OPENRESOLV_SRC/resolvconf ]
 then
-  ./configure --prefix=/usr --target=$TARGET --host=$TARGET
+  ./configure --prefix=/usr --sysconfdir=/etc --target=$TARGET --host=$TARGET
   make -j$(nproc)
 fi
 

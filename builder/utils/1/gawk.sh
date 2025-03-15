@@ -7,7 +7,7 @@ if [ ! -d $GAWK_SRC/build ]
 then
   mkdir -p $GAWK_SRC/build
   cd $GAWK_SRC/build
-  ../configure --prefix=/usr --build=$(../build-aux/config.guess) --host=$TARGET
+  ../configure --prefix=/usr --sysconfdir=/etc --build=$(../build-aux/config.guess) --host=$TARGET
   make -j$(nproc)
 fi
 cd $GAWK_SRC/build

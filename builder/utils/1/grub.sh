@@ -8,6 +8,7 @@ then
   mkdir -p $GRUB_SRC/build
   cd $GRUB_SRC/build
   ../configure --prefix=/usr \
+                --sysconfdir=/etc \
                 --build=$(../build-aux/config.guess) \
                 --host=$TARGET \
                 --target=$TARGET
