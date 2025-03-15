@@ -4,6 +4,12 @@ set -e
 
 source environment.sh
 
+# Add files that most likely don't exist
+if [ ! -f fs/etc/protocols ]
+then
+  ./update-protocols.sh
+fi
+
 # Clean build directory
 if [ -d $BUILD ]
 then

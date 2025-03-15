@@ -2,8 +2,11 @@
 
 export PATH=$CROSS_COMPILER/bin:$PATH
 
-for f in $ROOT/builder/utils/*.sh
+for phase in $ROOT/builder/utils/*
 do
-  $LOGRUN $f &
+  for f in $phase/*.sh
+  do
+    $LOGRUN $f &
+  done
+  wait
 done
-wait

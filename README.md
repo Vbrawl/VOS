@@ -11,7 +11,6 @@ Comming soon!
 # Known Issues
 
 * GCC can't compile unless you do `export PATH=/usr/libexec/gcc/x86_64-vos-linux-gnu/14.2.0/:$PATH`
-* Bootloader doesn't install correctly to the hard drive
 
 # Requirements
 
@@ -31,4 +30,6 @@ need to find equivalent for other linux distributions
 * bc
 * libssl-dev
 * genisoimage
+* help2man
+* automake
 * more... (Contributions are welcome!)
