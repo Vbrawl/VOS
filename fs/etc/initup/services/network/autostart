@@ -2,4 +2,5 @@
 
 mkdir -p /var/db
 mkdir -p /var/run
+ifconfig lo up
 exec dhcpcd

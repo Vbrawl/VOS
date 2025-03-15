@@ -11,7 +11,6 @@ Comming soon!
 # Known Issues
 
 * GCC can't compile unless you do `export PATH=/usr/libexec/gcc/x86_64-vos-linux-gnu/14.2.0/:$PATH`
-* Loopback is not up by default, to use 127.0.0.1 use `ifconfig lo up`
 
 # Requirements
 
