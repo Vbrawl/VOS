@@ -43,7 +43,6 @@ then
                 --enable-progress-meter \
                 --enable-websockets \
                 --without-libpsl \
-                --without-zlib \
                 --without-ssl
   make -j$(nproc)
 fi
