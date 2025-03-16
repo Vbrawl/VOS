@@ -8,7 +8,10 @@ if [ ! -d $CURL_SRC/build ]
 then
   mkdir -p $CURL_SRC/build
   cd $CURL_SRC/build
-  ../configure --prefix=/usr \
+  export PKG_CONFIG_PATH=
+  export PKG_CONFIG_LIBDIR=$ISO_SYSROOT/usr/lib/pkgconfig:$ISO_SYSROOT/usr/share/pkgconfig
+  export PKG_CONFIG_SYSROOT_DIR=$ISO_SYSROOT
+  CFLAGS="--sysroot=$ISO_SYSROOT" ../configure --prefix=/usr \
                 --build=$(../config.guess) \
                 --host=$TARGET \
                 --disable-debug \
@@ -42,8 +45,8 @@ then
                 --enable-cookies \
                 --enable-progress-meter \
                 --enable-websockets \
-                --without-libpsl \
-                --without-ssl
+                --with-openssl \
+                --without-libpsl
   make -j$(nproc)
 fi
 cd $CURL_SRC/build
