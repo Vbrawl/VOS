@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GAWK_SRC=$CACHE/gawk
-download_and_untar "https://ftp.gnu.org/gnu/gawk/gawk-5.3.1.tar.xz" "$GAWK_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/gawk/gawk-5.3.1.tar.xz" "$GAWK_SRC"
 
 if [ ! -d $GAWK_SRC/build ]
 then

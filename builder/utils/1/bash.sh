@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BASH_SRC=$CACHE/bash
-download_and_untar "https://ftp.gnu.org/gnu/bash/bash-5.2.37.tar.gz" "$BASH_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/bash/bash-5.2.37.tar.gz" "$BASH_SRC"
 chmod +x $BASH_SRC/support/config.guess
 
 if [ ! -d $BASH_SRC/build ]

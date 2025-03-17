@@ -5,7 +5,7 @@ COMPILER_SRC=$CACHE/gcc
 if [ ! -f $CROSS_COMPILER_FINISHED ]
 then
 
-download_and_untar "https://ftp.mpi-inf.mpg.de/mirrors/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-14.2.0/gcc-14.2.0.tar.xz" "$COMPILER_SRC"
+$ROOT/download_and_untar.sh "https://ftp.mpi-inf.mpg.de/mirrors/gnu/mirror/gcc.gnu.org/pub/gcc/releases/gcc-14.2.0/gcc-14.2.0.tar.xz" "$COMPILER_SRC"
 
 if [ ! -d $COMPILER_SRC/build ]
 then
@@ -37,4 +37,3 @@ make -j$(nproc) install
 
 
 fi
-export CROSS_CC=$CROSS_COMPILER/bin/$TARGET-gcc

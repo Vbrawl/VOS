@@ -2,7 +2,7 @@
 
 INETUTILS_SRC=$CACHE/inetutils
 
-download_and_untar "https://ftp.gnu.org/gnu/inetutils/inetutils-2.6.tar.xz" "$INETUTILS_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/inetutils/inetutils-2.6.tar.xz" "$INETUTILS_SRC"
 
 if [ ! -d $INETUTILS_SRC/build ]
 then

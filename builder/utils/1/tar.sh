@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TAR_SRC=$CACHE/tar
-download_and_untar "https://ftp.gnu.org/gnu/tar/tar-1.35.tar.xz" "$TAR_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/tar/tar-1.35.tar.xz" "$TAR_SRC"
 
 if [ ! -d $TAR_SRC/build ]
 then

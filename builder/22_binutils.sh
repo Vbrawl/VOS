@@ -5,7 +5,7 @@ BINUTILS_SRC=$CACHE/binutils
 if [ ! -f $CROSS_COMPILER_FINISHED ]
 then
 
-download_and_untar "https://sourceware.org/pub/binutils/snapshots/binutils-2.43.90.tar.xz" "$BINUTILS_SRC"
+$ROOT/download_and_untar.sh "https://sourceware.org/pub/binutils/snapshots/binutils-2.43.90.tar.xz" "$BINUTILS_SRC"
 
 if [ ! -d $BINUTILS_SRC/build ]
 then

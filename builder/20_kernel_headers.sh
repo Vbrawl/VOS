@@ -5,7 +5,7 @@ KERNEL_SRC=$CACHE/kernel
 if [ ! -f $CROSS_COMPILER_FINISHED ]
 then
 
-download_and_untar "https://cdn.kernel.org/pub/linux/kernel/v${KERNEL_MAJOR_VERSION}.x/linux-${KERNEL_MAJOR_VERSION}.${KERNEL_MINOR_VERSION}.${KERNEL_PATCH_VERSION}.tar.xz" "$KERNEL_SRC"
+$ROOT/download_and_untar.sh "https://cdn.kernel.org/pub/linux/kernel/v${KERNEL_MAJOR_VERSION}.x/linux-${KERNEL_MAJOR_VERSION}.${KERNEL_MINOR_VERSION}.${KERNEL_PATCH_VERSION}.tar.xz" "$KERNEL_SRC"
 
 mkdir -p $CROSS_COMPILER/usr
 cd $KERNEL_SRC

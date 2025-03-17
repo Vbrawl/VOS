@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DHCPCD_SRC=$CACHE/dhcpcd
-download_and_untar "https://github.com/NetworkConfiguration/dhcpcd/archive/refs/tags/v10.2.2.tar.gz" "$DHCPCD_SRC"
+$ROOT/download_and_untar.sh "https://github.com/NetworkConfiguration/dhcpcd/archive/refs/tags/v10.2.2.tar.gz" "$DHCPCD_SRC"
 
 cd $DHCPCD_SRC
 

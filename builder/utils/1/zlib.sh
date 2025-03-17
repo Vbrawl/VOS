@@ -2,7 +2,7 @@
 
 ZLIB_SRC=$CACHE/zlib
 
-download_and_untar "https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.xz" "$ZLIB_SRC"
+$ROOT/download_and_untar.sh "https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.xz" "$ZLIB_SRC"
 
 if [ ! -d $ZLIB_SRC/build ]
 then

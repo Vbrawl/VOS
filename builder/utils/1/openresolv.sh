@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OPENRESOLV_SRC=$CACHE/openresolv
-download_and_untar "https://github.com/NetworkConfiguration/openresolv/archive/refs/tags/v3.13.2.tar.gz" "$OPENRESOLV_SRC"
+$ROOT/download_and_untar.sh "https://github.com/NetworkConfiguration/openresolv/archive/refs/tags/v3.13.2.tar.gz" "$OPENRESOLV_SRC"
 cd $OPENRESOLV_SRC
 
 if [ ! -f $OPENRESOLV_SRC/resolvconf ]

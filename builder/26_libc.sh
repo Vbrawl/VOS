@@ -5,7 +5,7 @@ GLIBC_SRC=$CACHE/glibc
 if [ ! -f $CROSS_COMPILER_FINISHED ]
 then
 
-download_and_untar "https://ftp.gnu.org/gnu/glibc/glibc-2.41.tar.xz" "$GLIBC_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/glibc/glibc-2.41.tar.xz" "$GLIBC_SRC"
 
 if [ ! -d $GLIBC_SRC/build ]
 then

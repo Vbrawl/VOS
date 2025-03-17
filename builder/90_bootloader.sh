@@ -30,6 +30,3 @@ LABEL INSTALLER
     Install VOS
   ENDTEXT
 EOF
-
-export BOOTLOADER_BIN=isolinux/isolinux.bin
-export BOOTLOADER_CAT=isolinux/boot.cat

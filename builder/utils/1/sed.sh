@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SED_SRC=$CACHE/sed
-download_and_untar "https://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz" "$SED_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz" "$SED_SRC"
 
 if [ ! -d $SED_SRC/build ]
 then

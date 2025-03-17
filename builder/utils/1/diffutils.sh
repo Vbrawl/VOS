@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DIFFUTILS_SRC=$CACHE/diffutils
-download_and_untar "https://ftp.gnu.org/gnu/diffutils/diffutils-3.11.tar.xz" "$DIFFUTILS_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/diffutils/diffutils-3.11.tar.xz" "$DIFFUTILS_SRC"
 
 if [ ! -d $DIFFUTILS_SRC/build ]
 then

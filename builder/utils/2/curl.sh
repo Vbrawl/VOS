@@ -2,7 +2,7 @@
 
 CURL_SRC=$CACHE/curl
 
-download_and_untar "https://github.com/curl/curl/releases/download/curl-8_12_1/curl-8.12.1.tar.xz" "$CURL_SRC"
+$ROOT/download_and_untar.sh "https://github.com/curl/curl/releases/download/curl-8_12_1/curl-8.12.1.tar.xz" "$CURL_SRC"
 
 if [ ! -d $CURL_SRC/build ]
 then

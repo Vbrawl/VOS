@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GREP_SRC=$CACHE/grep
-download_and_untar "https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz" "$GREP_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz" "$GREP_SRC"
 
 if [ ! -d $GREP_SRC/build ]
 then

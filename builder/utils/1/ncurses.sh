@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NCURSES_SRC=$CACHE/ncurses
-download_and_untar "https://ftp.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz" "$NCURSES_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz" "$NCURSES_SRC"
 
 if [ ! -d $NCURSES_SRC/build-tic ]
 then

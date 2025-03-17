@@ -2,7 +2,7 @@
 
 LIBXCRYPT_SRC=$CACHE/libxcrypt
 
-download_and_untar "https://github.com/besser82/libxcrypt/releases/download/v4.4.38/libxcrypt-4.4.38.tar.xz" "$LIBXCRYPT_SRC"
+$ROOT/download_and_untar.sh "https://github.com/besser82/libxcrypt/releases/download/v4.4.38/libxcrypt-4.4.38.tar.xz" "$LIBXCRYPT_SRC"
 
 if [ ! -d $LIBXCRYPT_SRC/build ]
 then

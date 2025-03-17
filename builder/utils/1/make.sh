@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MAKE_SRC=$CACHE/make
-download_and_untar "https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz" "$MAKE_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz" "$MAKE_SRC"
 
 if [ ! -d $MAKE_SRC/build_dir ]
 then

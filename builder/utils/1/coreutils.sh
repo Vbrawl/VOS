@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CORE_SRC=$CACHE/coreutils
-download_and_untar "https://ftp.gnu.org/gnu/coreutils/coreutils-9.6.tar.xz" "$CORE_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/coreutils/coreutils-9.6.tar.xz" "$CORE_SRC"
 
 if [ ! -d $CORE_SRC/build ]
 then

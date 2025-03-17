@@ -1,7 +1,7 @@
 #!/bin/bash
 
 KBD_SRC=$CACHE/kbd
-download_and_untar "https://web.git.kernel.org/pub/scm/linux/kernel/git/legion/kbd.git/snapshot/kbd-2.7.1.tar.gz" "$KBD_SRC"
+$ROOT/download_and_untar.sh "https://web.git.kernel.org/pub/scm/linux/kernel/git/legion/kbd.git/snapshot/kbd-2.7.1.tar.gz" "$KBD_SRC"
 cd $KBD_SRC
 ./autogen.sh
 

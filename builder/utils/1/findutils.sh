@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FINDUTILS_SRC=$CACHE/findutils
-download_and_untar "https://ftp.gnu.org/gnu/findutils/findutils-4.10.0.tar.xz" "$FINDUTILS_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/findutils/findutils-4.10.0.tar.xz" "$FINDUTILS_SRC"
 
 if [ ! -d $FINDUTILS_SRC/build ]
 then

@@ -7,7 +7,7 @@ MPFR_SRC=$GCC_SRC/mpfr
 GMP_SRC=$GCC_SRC/gmp
 MPC_SRC=$GCC_SRC/mpc
 
-download_and_untar "https://sourceware.org/pub/binutils/snapshots/binutils-2.43.90.tar.xz" "$BINUTILS_SRC"
+$ROOT/download_and_untar.sh "https://sourceware.org/pub/binutils/snapshots/binutils-2.43.90.tar.xz" "$BINUTILS_SRC"
 if [ ! -d $BINUTILS_SRC/build_final ]
 then
   mkdir -p $BINUTILS_SRC/build_final

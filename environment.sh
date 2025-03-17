@@ -25,10 +25,14 @@ export KERNEL_PATCH_VERSION="4"
 export ENDIAN=little
 export ARCH=x86_64
 export TARGET=$ARCH-vos-linux-gnu
-export CROSS_CC=""
-export MESON_CROSS_FILE=""
-export BOOTLOADER_BIN=""
-export BOOTLOADER_CAT=""
+export CROSS_CC=$CROSS_COMPILER/bin/$TARGET-gcc
+export MESON_CROSS_FILE=$CROSS_COMPILER/cross_cc.meson
 
 export MAGIC_FILE_NAME="MAGIC"
-export MAGIC_FILE_HASH=""
+export MAGIC_FILE_HASH="" # Can't be known here
+
+export PATH=$CROSS_COMPILER/bin:$PATH
+export PKG_CONFIG_PATH=
+export PKG_CONFIG_LIBDIR=$ISO_SYSROOT/usr/lib/pkgconfig:$ISO_SYSROOT/usr/share/pkgconfig
+export PKG_CONFIG_SYSROOT_DIR=$ISO_SYSROOT
+export CFLAGS="--sysroot=$ISO_SYSROOT"

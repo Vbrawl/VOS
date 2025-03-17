@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PAM_SRC=$CACHE/pam
-download_and_untar "https://github.com/linux-pam/linux-pam/releases/download/v1.7.0/Linux-PAM-1.7.0.tar.xz" "$PAM_SRC"
+$ROOT/download_and_untar.sh "https://github.com/linux-pam/linux-pam/releases/download/v1.7.0/Linux-PAM-1.7.0.tar.xz" "$PAM_SRC"
 
 if [ ! -d $PAM_SRC/build ]
 then

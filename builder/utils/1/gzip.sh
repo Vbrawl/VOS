@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GZIP_SRC=$CACHE/gzip
-download_and_untar "https://ftp.gnu.org/gnu/gzip/gzip-1.13.tar.xz" $GZIP_SRC
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/gzip/gzip-1.13.tar.xz" $GZIP_SRC
 
 if [ ! -d $GZIP_SRC/build ]
 then

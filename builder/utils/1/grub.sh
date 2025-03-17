@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GRUB_SRC=$CACHE/grub
-download_and_untar "https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz" "$GRUB_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz" "$GRUB_SRC"
 
 if [ ! -d $GRUB_SRC/build ]
 then

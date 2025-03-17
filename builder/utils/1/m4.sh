@@ -1,7 +1,7 @@
 #!/bin/bash
 
 M4_SRC=$CACHE/m4
-download_and_untar "https://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.xz" "$M4_SRC"
+$ROOT/download_and_untar.sh "https://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.xz" "$M4_SRC"
 
 if [ ! -d $M4_SRC/build ]
 then

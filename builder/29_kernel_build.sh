@@ -1,7 +1,7 @@
 #!/bin/bash
 
 KERNEL_SRC=$CACHE/kernel
-download_and_untar "https://cdn.kernel.org/pub/linux/kernel/v${KERNEL_MAJOR_VERSION}.x/linux-${KERNEL_MAJOR_VERSION}.${KERNEL_MINOR_VERSION}.${KERNEL_PATCH_VERSION}.tar.xz" "$KERNEL_SRC"
+$ROOT/download_and_untar.sh "https://cdn.kernel.org/pub/linux/kernel/v${KERNEL_MAJOR_VERSION}.x/linux-${KERNEL_MAJOR_VERSION}.${KERNEL_MINOR_VERSION}.${KERNEL_PATCH_VERSION}.tar.xz" "$KERNEL_SRC"
 
 cd $KERNEL_SRC
 
