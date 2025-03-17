@@ -2,7 +2,11 @@
 
 cd /
 
-while true
-do
-  /bin/sh
-done
+openvt -c 2 /bin/sh
+openvt -c 3 /bin/sh
+openvt -c 4 /bin/sh
+openvt -c 5 /bin/sh
+openvt -c 6 /bin/sh
+openvt -c 7 /bin/sh
+
+exec /bin/sh
