@@ -9,4 +9,4 @@ openvt -c 5 /bin/sh
 openvt -c 6 /bin/sh
 openvt -c 7 /bin/sh
 
-exec /bin/sh
+exec setsid /bin/sh >/dev/tty1 2>&1 </dev/tty1
