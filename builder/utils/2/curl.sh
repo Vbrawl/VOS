@@ -11,6 +11,8 @@ then
   ../configure --prefix=/usr \
                 --build=$(../config.guess) \
                 --host=$TARGET \
+                --with-ca-bundle=/usr/ssl/bundle.crt \
+                --with-ca-path=/usr/ssl/certs \
                 --disable-debug \
                 --enable-warnings \
                 --disable-curldebug \

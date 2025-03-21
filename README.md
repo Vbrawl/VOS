@@ -11,7 +11,6 @@ Comming soon!
 # Known Issues
 
 * GCC can't compile unless you do `export PATH=/usr/libexec/gcc/x86_64-vos-linux-gnu/14.2.0/:$PATH`
-* CURL doesn't include any functionality with SSL and others
 
 # Requirements
 
