@@ -24,9 +24,12 @@ export KERNEL_PATCH_VERSION="4"
 
 export ENDIAN=little
 export ARCH=x86_64
-export TARGET=$ARCH-vos-linux-gnu
+export OS=vos
+export TARGET=$ARCH-$OS-linux-gnu
+
 export CROSS_CC=$CROSS_COMPILER/bin/$TARGET-gcc
 export MESON_CROSS_FILE=$CROSS_COMPILER/cross_cc.meson
+export CMAKE_CROSS_FILE=$CROSS_COMPILER/cross_cc.cmake
 
 export MAGIC_FILE_NAME="MAGIC"
 export MAGIC_FILE_HASH="" # Can't be known here
