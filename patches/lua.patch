@@ -1,0 +1,41 @@
+diff -ruN lua/Makefile lua.patch/Makefile
+--- lua/Makefile	2024-05-09 00:47:12.000000000 +0300
++++ lua.patch/Makefile	2025-03-26 14:08:46.265343828 +0200
+@@ -41,7 +41,7 @@
+ # What to install.
+ TO_BIN= lua luac
+ TO_INC= lua.h luaconf.h lualib.h lauxlib.h lua.hpp
+-TO_LIB= liblua.a
++TO_LIB= liblua.a liblua.so
+ TO_MAN= lua.1 luac.1
+ 
+ # Lua version and release.
+diff -ruN lua/src/Makefile lua.patch/src/Makefile
+--- lua/src/Makefile	2023-02-03 12:43:14.000000000 +0200
++++ lua.patch/src/Makefile	2025-03-26 14:04:53.344684843 +0200
+@@ -7,7 +7,7 @@
+ PLAT= guess
+ 
+ CC= gcc -std=gnu99
+-CFLAGS= -O2 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
++CFLAGS= -O2 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS) -fPIC
+ LDFLAGS= $(SYSLDFLAGS) $(MYLDFLAGS)
+ LIBS= -lm $(SYSLIBS) $(MYLIBS)
+ 
+@@ -59,6 +59,7 @@
+ $(LUA_A): $(BASE_O)
+ 	$(AR) $@ $(BASE_O)
+ 	$(RANLIB) $@
++	$(CC) -shared -ldl -Wl,-soname,liblua.so -o liblua.so $? -lm $(MYLDFLAGS)
+ 
+ $(LUA_T): $(LUA_O) $(LUA_A)
+ 	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
+@@ -70,7 +71,7 @@
+ 	./$(LUA_T) -v
+ 
+ clean:
+-	$(RM) $(ALL_T) $(ALL_O)
++	$(RM) $(ALL_T) $(ALL_O) liblua.so
+ 
+ depend:
+ 	@$(CC) $(CFLAGS) -MM l*.c

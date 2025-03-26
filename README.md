@@ -32,4 +32,5 @@ need to find equivalent for other linux distributions
 * genisoimage
 * help2man
 * automake
+* file >= 5.44
 * more... (Contributions are welcome!)
