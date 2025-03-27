@@ -27,6 +27,7 @@ mkdir -p $CROSS_COMPILER
 mkdir -p $BUILD
 mkdir -p $BUILD_INITRD
 mkdir -p $BUILD_ISO
+mkdir -p $ISO_RPMS
 mkdir -p $CACHE_SYSROOT
 mkdir -p $ISO_SYSROOT
 mkdir -p $DIST

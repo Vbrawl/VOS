@@ -38,13 +38,13 @@ echo "Writing /etc/fstab"
 mkdir -p /mnt/etc
 mkdir -p /mnt/sys
 mkdir -p /mnt/proc
-mkdir -p /mnt/var
+mkdir -p /mnt/var/tmp
 mkdir -p /mnt/tmp
 echo "${DRIVE}1 / ext4 rw 0 1" > /mnt/etc/fstab
 echo "none /sys sysfs rw 0 1" >> /mnt/etc/fstab
 echo "none /proc proc rw 0 1" >> /mnt/etc/fstab
 echo "none /dev devtmpfs rw 0 1" >> /mnt/etc/fstab
-echo "none /var tmpfs rw 0 1" >> /mnt/etc/fstab
+echo "none /var/tmp tmpfs rw,mode=1777 0 1" >> /mnt/etc/fstab
 echo "none /tmp tmpfs rw,mode=1777 0 1" >> /mnt/etc/fstab
 
 
@@ -60,8 +60,16 @@ do
 done
 
 chroot /mnt /usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg
-echo "Installation complete!"
 
+chroot /mnt /sbin/ldconfig
+mkdir -p /mnt/mnt
+mount --bind /install_media/rpms /mnt/mnt
+for f in $(ls /install_media/rpms)
+do
+  chroot /mnt /usr/bin/rpm --nodeps -i /mnt/$f
+done
+
+echo "Installation complete!"
 # End of "if Y" statement
 fi
 

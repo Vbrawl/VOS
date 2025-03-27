@@ -8,6 +8,7 @@ export CACHE=$ROOT/cache
 export BUILD=$ROOT/build
 export BUILD_INITRD=$BUILD/initrd_fs
 export BUILD_ISO=$BUILD/iso
+export ISO_RPMS=$BUILD_ISO/rpms
 export SYSROOT=$BUILD_INITRD
 export CACHE_SYSROOT=$CACHE/sysroot
 export ISO_SYSROOT=$BUILD_ISO/fs
