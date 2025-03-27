@@ -14,15 +14,8 @@ then
 fi
 
 # Build TAR ball ($GREP_SRC/build/sysroot/grep-${GREP_VERSION}.tar)
-if [ -d $GREP_SRC/build/${GREP_RPM_NAME}-${GREP_VERSION} ]
-then
-  rm -r $GREP_SRC/build/${GREP_RPM_NAME}-${GREP_VERSION}
-  rm $GREP_SRC/build/${GREP_RPM_NAME}-${GREP_VERSION}.tar
-fi
-
 cd $GREP_SRC/build
-make DESTDIR=$GREP_SRC/build/${GREP_RPM_NAME}-${GREP_VERSION} install
-tar -cf ${GREP_RPM_NAME}-${GREP_VERSION}.tar ${GREP_RPM_NAME}-${GREP_VERSION}/usr/bin/{egrep,fgrep,grep}
+$ROOT/generate_tar.sh make $GREP_SRC/build/${GREP_RPM_NAME}-${GREP_VERSION}.tar ${GREP_RPM_NAME}-${GREP_VERSION} usr/bin/grep
 
 # Build RPM
 if [ -d $GREP_SRC/build/rpmbuild ]
