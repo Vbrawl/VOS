@@ -28,9 +28,9 @@ $ROOT/generate_rpm.sh "$ISO_RPMS" \
                       "$LIBARCHIVE_SRC/builddir/rpmbuild" \
                       "$LIBARCHIVE_RPM_NAME" \
                       "$LIBARCHIVE_VERSION" \
-                      "Summary" \
-                      "Description" \
-                      "License" \
+                      "Libraries and utilities for archive management" \
+                      "The libarchive project develops a portable, efficient C library that can read and write streaming archives in a variety of formats. It also includes implementations of the common tar, cpio, and zcat command-line tools that use the libarchive library." \
+                      "custom" \
                       "$LIBARCHIVE_SRC/builddir/$LIBARCHIVE_FULLNAME.tar" \
                       "usr/bin/bsdcat" "%{_bindir}/bsdcat" \
                       "usr/bin/bsdcpio" "%{_bindir}/bsdcpio" \
