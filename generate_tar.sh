@@ -26,10 +26,10 @@ export DESTDIR=$(pwd)/$SRC_DIR
 if [ $INSTALL_METHOD == "make" ]
 then
   make install
-elif [ $INSTALL_METHOD == "cmake"]
+elif [ $INSTALL_METHOD == "cmake" ]
 then
   cmake --install .
-elif [ $INSTALL_METHOD == "meson"]
+elif [ $INSTALL_METHOD == "meson" ]
 then
   meson install
 fi
