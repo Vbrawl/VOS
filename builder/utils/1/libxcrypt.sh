@@ -14,7 +14,7 @@ then
   make -j$(nproc)
 fi
 cd $LIBXCRYPT_SRC/build
-#make DESTDIR=$ISO_SYSROOT install
+make DESTDIR=$ISO_SYSROOT install
 
 $ROOT/generate_tar.sh make $LIBXCRYPT_SRC/build/$LIBXCRYPT_FULLNAME.tar $LIBXCRYPT_FULLNAME \
                       usr/include/{xcrypt,crypt}.h \

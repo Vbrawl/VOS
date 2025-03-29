@@ -20,7 +20,7 @@ cd $LIBMAGIC_SRC/build
 $ROOT/generate_tar.sh make $LIBMAGIC_SRC/build/$LIBMAGIC_FULLNAME.tar $LIBMAGIC_FULLNAME \
       usr/bin/file \
       usr/include/magic.h \
-      usr/lib/{libmagic.la,libmagic.so,libmagic.so.1,libmagic.so.1.0.0,pkgconfig/libmagic.pc}
+      usr/lib/{libmagic.so,libmagic.so.1,libmagic.so.1.0.0,pkgconfig/libmagic.pc}
 
 # Make RPM package
 cd $LIBMAGIC_SRC/build
@@ -34,7 +34,6 @@ $ROOT/generate_rpm.sh "$ISO_RPMS" \
                       "$LIBMAGIC_SRC/build/$LIBMAGIC_FULLNAME.tar" \
                       "usr/bin/file" "%{_bindir}/file" \
                       "usr/include/magic.h" "%{_includedir}/magic.h" \
-                      "usr/lib/libmagic.la" "%{_libdir}/libmagic.la" \
                       "usr/lib/libmagic.so" "%{_libdir}/libmagic.so" \
                       "usr/lib/libmagic.so.1" "%{_libdir}/libmagic.so.1" \
                       "usr/lib/libmagic.so.1.0.0" "%{_libdir}/libmagic.so.1.0.0" \
