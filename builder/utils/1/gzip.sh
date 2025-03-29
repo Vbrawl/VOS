@@ -30,17 +30,17 @@ $ROOT/generate_rpm.sh "$ISO_RPMS" \
                       "GNU Gzip is a popular data compression program originally written by Jean-loup Gailly for the GNU project. Mark Adler wrote the decompression part." \
                       "GPL" \
                       "$GZIP_SRC/build/$GZIP_FULLNAME.tar" \
-                      "usr/bin/gunzip" "${_bindir}/gunzip" \
-                      "usr/bin/gzip" "${_bindir}/gzip" \
-                      "usr/bin/zcat" "${_bindir}/zcat" \
-                      "usr/bin/zdiff" "${_bindir}/zdiff" \
-                      "usr/bin/zfgrep" "${_bindir}/zfgrep" \
-                      "usr/bin/zgrep" "${_bindir}/zgrep" \
-                      "usr/bin/zmore" "${_bindir}/zmore" \
-                      "usr/bin/gzexe" "${_bindir}/gzexe" \
-                      "usr/bin/uncompress" "${_bindir}/uncompress" \
-                      "usr/bin/zcmp" "${_bindir}/zcmp" \
-                      "usr/bin/zegrep" "${_bindir}/zegrep" \
-                      "usr/bin/zforce" "${_bindir}/zforce" \
-                      "usr/bin/zless" "${_bindir}/zless" \
-                      "usr/bin/znew" "${_bindir}/znew"
+                      "usr/bin/gunzip" "%{_bindir}/gunzip" \
+                      "usr/bin/gzip" "%{_bindir}/gzip" \
+                      "usr/bin/zcat" "%{_bindir}/zcat" \
+                      "usr/bin/zdiff" "%{_bindir}/zdiff" \
+                      "usr/bin/zfgrep" "%{_bindir}/zfgrep" \
+                      "usr/bin/zgrep" "%{_bindir}/zgrep" \
+                      "usr/bin/zmore" "%{_bindir}/zmore" \
+                      "usr/bin/gzexe" "%{_bindir}/gzexe" \
+                      "usr/bin/uncompress" "%{_bindir}/uncompress" \
+                      "usr/bin/zcmp" "%{_bindir}/zcmp" \
+                      "usr/bin/zegrep" "%{_bindir}/zegrep" \
+                      "usr/bin/zforce" "%{_bindir}/zforce" \
+                      "usr/bin/zless" "%{_bindir}/zless" \
+                      "usr/bin/znew" "%_bindir}/znew"
