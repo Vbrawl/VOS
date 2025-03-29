@@ -18,7 +18,7 @@ cd $LIBXCRYPT_SRC/build
 
 $ROOT/generate_tar.sh make $LIBXCRYPT_SRC/build/$LIBXCRYPT_FULLNAME.tar $LIBXCRYPT_FULLNAME \
                       usr/include/{xcrypt,crypt}.h \
-                      usr/lib/{libcrypt.a,libcrypt.la,libcrypt.so,libcrypt.so.1,libcrypt.so.1.1.0,libowcrypt.a,libowcrypt.so,libowcrypt.so.1,libxcrypt.a,libxcrypt.so} \
+                      usr/lib/{libcrypt.a,libcrypt.so,libcrypt.so.1,libcrypt.so.1.1.0,libowcrypt.a,libowcrypt.so,libowcrypt.so.1,libxcrypt.a,libxcrypt.so} \
                       usr/lib/pkgconfig/lib{crypt,xcrypt}.pc
 
 cd $LIBXCRYPT_SRC/build
@@ -33,7 +33,6 @@ $ROOT/generate_rpm.sh "$ISO_RPMS" \
                       "usr/include/xcrypt.h" "%{_includedir}/xcrypt.h" \
                       "usr/include/crypt.h" "%{_includedir}/crypt.h" \
                       "usr/lib/libcrypt.so" "%{_libdir}/libcrypt.so" \
-                      "usr/lib/libcrypt.la" "%{_libdir}/libcrypt.la" \
                       "usr/lib/libxcrypt.so" "%{_libdir}/libxcrypt.so" \
                       "usr/lib/libcrypt.so.1" "%{_libdir}/libcrypt.so.1" \
                       "usr/lib/libcrypt.a" "%{_libdir}/libcrypt.a" \
