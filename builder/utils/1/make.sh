@@ -27,6 +27,6 @@ $ROOT/generate_rpm.sh "$ISO_RPMS" \
                       "Make utility" \
                       "GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files." \
                       "GPL-3" \
-                      "$MAKE_SRC/build/$MAKE_FULLNAME.tar" \
+                      "$MAKE_SRC/build_dir/$MAKE_FULLNAME.tar" \
                       "usr/bin/make" "%{_bindir}/make" \
                       "usr/include/gnumake.h" "%{_includedir}/gnumake.h"

@@ -43,4 +43,4 @@ $ROOT/generate_rpm.sh "$ISO_RPMS" \
                       "usr/bin/zegrep" "%{_bindir}/zegrep" \
                       "usr/bin/zforce" "%{_bindir}/zforce" \
                       "usr/bin/zless" "%{_bindir}/zless" \
-                      "usr/bin/znew" "%_bindir}/znew"
+                      "usr/bin/znew" "%{_bindir}/znew"
