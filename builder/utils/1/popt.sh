@@ -18,6 +18,7 @@ then
 fi
 cd $POPT_SRC/build
 make DESTDIR=$ISO_SYSROOT install
+rm $ISO_SYSROOT/usr/lib/libopt.la
 
 $ROOT/generate_tar.sh make $POPT_SRC/build/$POPT_FULLNAME.tar $POPT_FULLNAME \
                       usr/lib/libpopt.{a,so,so.0.0.2,so.0} \
