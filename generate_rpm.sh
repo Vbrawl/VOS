@@ -55,5 +55,5 @@ do
   echo "$f" >> $RPMBUILD/SPECS/$RPMNAME.spec
 done
 
-rpmbuild --define "_topdir $RPMBUILD" -ba $RPMBUILD/SPECS/$RPMNAME.spec
+rpmbuild --define "_topdir $RPMBUILD" --define "_libdir %{_prefix}/lib" -ba $RPMBUILD/SPECS/$RPMNAME.spec
 cp $RPMBUILD/RPMS/$ARCH/$RPMNAME-$VERSION-1.$ARCH.rpm $RPMDEST
