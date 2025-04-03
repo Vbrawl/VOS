@@ -14,7 +14,7 @@ then
   make -j$(nproc)
 fi
 cd $ZLIB_SRC/build
-#make DESTDIR=$ISO_SYSROOT install
+make DESTDIR=$ISO_SYSROOT install
 
 
 $ROOT/generate_tar.sh make $ZLIB_SRC/build/$ZLIB_FULLNAME.tar $ZLIB_FULLNAME \
