@@ -20,6 +20,10 @@ if [ -f Makefile.bak ]
 then
   mv Makefile.bak Makefile
 fi
+sed -i.bak "\|INSTALL_TOP=|s|/usr/local|${ISO_SYSROOT}/usr|g" Makefile
+make install
+
+mv Makefile.bak Makefile
 sed -i.bak "\|INSTALL_TOP=|s|/usr/local|${LUA_SRC}/${LUA_FULLNAME}/usr|g" Makefile
 
 $ROOT/generate_tar.sh make $LUA_SRC/$LUA_FULLNAME.tar $LUA_FULLNAME \
