@@ -12,7 +12,10 @@ LICENSE=$7
 TARFILE=$8
 shift 8
 
-rm -r $RPMBUILD || true
+if [ -d $RPMBUILD ]
+then
+  rm -r $RPMBUILD
+fi
 mkdir -p $RPMBUILD/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 cp $TARFILE $RPMBUILD/SOURCES
 
@@ -45,7 +48,7 @@ do
   DSTDIR=$(dirname $DST)
 
   echo "mkdir -p %{buildroot}/$DSTDIR" >> $RPMBUILD/SPECS/$RPMNAME.spec
-  echo "cp $SRC %{buildroot}/$DST" >> $RPMBUILD/SPECS/$RPMNAME.spec
+  echo "cp -P $SRC %{buildroot}/$DST" >> $RPMBUILD/SPECS/$RPMNAME.spec
   FILES+=($DST)
 done
 
