@@ -14,7 +14,7 @@ then
   make -j$(nproc)
 fi
 cd $OPENSSL_SRC/build
-#make DESTDIR=$ISO_SYSROOT install
+make DESTDIR=$ISO_SYSROOT install
 
 $ROOT/generate_tar.sh make $OPENSSL_SRC/build/$OPENSSL_FULLNAME.tar $OPENSSL_FULLNAME \
                       usr/bin/{c_rehash,openssl} \
