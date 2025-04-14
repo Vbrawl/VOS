@@ -12,6 +12,12 @@ LICENSE=$7
 TARFILE=$8
 shift 8
 
+if [ -f $RPMBUILD/RPMS/$ARCH/$RPMNAME-$VERSION-1.$ARCH.rpm ]
+then
+  cp $RPMBUILD/RPMS/$ARCH/$RPMNAME-$VERSION-1.$ARCH.rpm $RPMDEST
+  exit # We don't need to compile something that already exists
+fi
+
 if [ -d $RPMBUILD ]
 then
   rm -r $RPMBUILD

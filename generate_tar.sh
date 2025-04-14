@@ -6,6 +6,11 @@ DST_TAR=$2
 SRC_DIR=$3
 shift 3
 
+if [ -f $DST_TAR ]
+then
+  exit # We don't need to recompile $DST_TAR since it already exists
+fi
+
 FILES=()
 for f in "$@"
 do
