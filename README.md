@@ -6,7 +6,15 @@ It aims to be a daily driver and to support gaming, programming and hacking.
 
 # Installer?
 
-Comming soon!
+You need to build the installer
+
+# Building
+
+To build VOS simply run `build.sh` from the root directory
+
+```
+./build.sh
+```
 
 # Known Issues
 
