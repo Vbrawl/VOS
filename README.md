@@ -12,6 +12,10 @@ Comming soon!
 
 * GCC can't compile unless you do `export PATH=/usr/libexec/gcc/x86_64-vos-linux-gnu/14.2.0/:$PATH`
 
+# Notes
+
+* GCC is disabled to reduce compilation time
+
 # Requirements
 
 These packages below refer to Debian linux distributions, you may
