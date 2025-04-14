@@ -23,7 +23,7 @@ cd $INETUTILS_SRC/build
 #make DESTDIR=$ISO_SYSROOT install
 
 $ROOT/generate_tar.sh make $INETUTILS_SRC/build/$INETUTILS_FULLNAME.tar $INETUTILS_FULLNAME \
-                      usr/bin/{telnet,whois,ping,ftp,dnsdomainname,tftp,rsh,rexec,hostname,logger,traceroute,rlogin,rcp,ping6,ifconfig} \
+                      usr/bin/{telnet,whois,ping,ftp,dnsdomainname,tftp,rsh,rexec,hostname,traceroute,rlogin,rcp,ping6,ifconfig} \
                       usr/libexec/{inetd,tftpd,syslogd,rlogind,talkd,rshd,telnetd}
 
 $ROOT/generate_rpm.sh "$ISO_RPMS" \
@@ -43,7 +43,6 @@ $ROOT/generate_rpm.sh "$ISO_RPMS" \
 "usr/bin/rsh" "%{_bindir}/rsh" \
 "usr/bin/rexec" "%{_bindir}/rexec" \
 "usr/bin/hostname" "%{_bindir}/hostname" \
-"usr/bin/logger" "%{_bindir}/logger" \
 "usr/bin/traceroute" "%{_bindir}/traceroute" \
 "usr/bin/rlogin" "%{_bindir}/rlogin" \
 "usr/bin/rcp" "%{_bindir}/rcp" \

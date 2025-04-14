@@ -20,7 +20,7 @@ $ROOT/generate_tar.sh make $CORE_SRC/build/$CORE_FULLNAME.tar $CORE_FULLNAME \
         usr/bin/{'[',b2sum,base32,base64,basename,basenc,cat,chcon,chgrp} \
         usr/bin/{chmod,chown,chroot,cksum,comm,cp,csplit,cut,date,dd,df,dir} \
         usr/bin/{dircolors,dirname,du,echo,env,expand,expr,factor,false,fmt} \
-        usr/bin/{fold,groups,head,hostid,id,install,join,kill,link,ln,logname} \
+        usr/bin/{fold,groups,head,hostid,id,install,join,link,ln,logname} \
         usr/bin/{ls,md5sum,mkdir,mkfifo,mknod,mktemp,mv,nice,nl,nohup,nproc} \
         usr/bin/{numfmt,od,paste,pathchk,pinky,pr,printenv,printf,ptx,pwd} \
         usr/bin/{readlink,realpath,rm,rmdir,runcon,seq,sha1sum,sha224sum} \
@@ -65,7 +65,6 @@ $ROOT/generate_rpm.sh "$ISO_RPMS" \
                       "usr/bin/mknod" "%{_bindir}/mknod" \
                       "usr/bin/basenc" "%{_bindir}/basenc" \
                       "usr/bin/readlink" "%{_bindir}/readlink" \
-                      "usr/bin/kill" "%{_bindir}/kill" \
                       "usr/bin/cksum" "%{_bindir}/cksum" \
                       "usr/bin/chcon" "%{_bindir}/chcon" \
                       "usr/bin/fmt" "%{_bindir}/fmt" \
