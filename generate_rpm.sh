@@ -33,6 +33,7 @@ Summary: $SUMMARY
 ExclusiveArch: $ARCH
 License: $LICENSE
 Source0: $TARFILE
+$EXTRA_TAGS
 
 %description
 $DESCRIPTION
