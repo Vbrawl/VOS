@@ -29,7 +29,7 @@ fi
 
 if [ $INSTALL_METHOD == "make" ]
 then
-  make DESTDIR=$(pwd)/$SRC_DIR install
+  make DESTDIR=$(pwd)/$SRC_DIR install -j$(nproc)
 elif [ $INSTALL_METHOD == "cmake" ]
 then
   DESTDIR=$(pwd)/$SRC_DIR cmake --install .
