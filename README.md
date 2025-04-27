@@ -18,6 +18,7 @@ To build VOS simply run `build.sh` from the root directory
 
 # Known Issues
 
+* `ping` utility (and probably more) don't have the correct permissions for execution
 * GCC can't compile unless you do `export PATH=/usr/libexec/gcc/x86_64-vos-linux-gnu/14.2.0/:$PATH`
 
 # Notes
